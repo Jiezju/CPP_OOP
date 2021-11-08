@@ -15,12 +15,15 @@ private:
 public:
 	Complex() {}
 	~Complex() {}
+	// class body 内的成员函数 自动成为 inline function
+	T real() const { return re; }
 	void function();
 	// ...
 };
 
 // 类的方法定义 也可以放在 Complex.cpp 中
-void Complex<T>::function()
+// 类的 body 外定义 加上 inline
+inline void Complex<T>::function()
 {
 	// ...
 }

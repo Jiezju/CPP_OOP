@@ -14,8 +14,11 @@ complex&
 class complex
 {
 public:
-  // 构造函数 默认构造函数； pass by value； 初始化列表 
+  // 构造函数 有默认参数的构造函数； pass by value； 初始化列表 
   complex (double r = 0, double i = 0): re (r), im (i) { // 可能分配内存}
+  // 默认构造函数
+  complex () : re (0), im (0) { }
+  
   // 操作函数 成员函数
   complex& operator += (const complex&);
   complex& operator -= (const complex&);
@@ -232,5 +235,14 @@ norm (const complex& x)
 #endif   //__MYCOMPLEX__
 
 
+// test function
+
+int main()
+{
+  complex c1(2,1);
+  cout << c1.real(); // public funciton 调用
+  // cout << c1.re; error 不允许类外访问 private member 
+
+}
 
 
